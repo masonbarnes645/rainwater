@@ -2,6 +2,11 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { Box } from "@mui/material";
 import Link from "next/link";
+import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import WaterDropIcon from '@mui/icons-material/WaterDrop';
+import CalculateIcon from '@mui/icons-material/Calculate';
+import CustomButton from "./components/CustomButton";
+
 
 
 export default function Home() {
@@ -13,13 +18,13 @@ export default function Home() {
       </Box>
       <Box>
         <Link href={'/rainwater-calculator'}>
-          <button style={{ borderRadius: '10px' }}>Rainwater Collection Calculator</button>
+          <CustomButton Icon={CalculateIcon} />
         </Link>
         <Link href={'/learn'}>
-          <button style={{ borderRadius: '10px' }}>Learn More about Water Scarcity</button>
+          <CustomButton Icon={LocalLibraryIcon} />
         </Link>
         <Link href={'/take-action'}>
-          <button style={{ borderRadius: '10px' }}>Take Action</button>
+          <CustomButton Icon={WaterDropIcon} />
         </Link>
       </Box>
     </>
