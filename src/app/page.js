@@ -11,23 +11,33 @@ import CustomButton from "./components/CustomButton";
 
 export default function Home() {
   return (
-    <>
+    <Box sx={{marginTop:'60px'}}>
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>
         <img src="/drieduplandscape.jpg" height={'550px'} />
         <h2>{blurb}</h2>
       </Box>
-      <Box>
-        <Link href={'/rainwater-calculator'}>
-          <CustomButton Icon={CalculateIcon} />
-        </Link>
+      <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <Link href={'/learn'}>
-          <CustomButton Icon={LocalLibraryIcon} />
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <CustomButton Icon={LocalLibraryIcon} />
+            <h2>Learn More</h2>
+          </Box>
         </Link>
         <Link href={'/take-action'}>
-          <CustomButton Icon={WaterDropIcon} />
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <CustomButton Icon={WaterDropIcon} />
+            <h2>Take Action</h2>
+          </Box>
+        </Link>
+        <Link href={'/rainwater-calculator'}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <CustomButton Icon={CalculateIcon} />
+            <h2>Rainwater Calculator</h2>
+          </Box>
         </Link>
       </Box>
-    </>
+    </Box>
+
   );
 }
 
