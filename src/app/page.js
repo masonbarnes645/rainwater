@@ -1,18 +1,26 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Box } from "@mui/material";
+import Link from "next/link";
+
 
 export default function Home() {
   return (
     <>
-      <Box sx={{display:'flex', flexDirection:'row'}}>
+      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
         <img src="/drieduplandscape.jpg" height={'550px'} />
         <h2>{blurb}</h2>
       </Box>
       <Box>
-        <button style={{borderRadius:'10px'}}>Rainwater Collection Calculator</button>
-        <button style={{borderRadius:'10px'}}>Learn More about Water Scarcity</button>
-        <button style={{borderRadius:'10px'}}>Take Action</button>
+        <Link href={'/rainwater-calculator'}>
+          <button style={{ borderRadius: '10px' }}>Rainwater Collection Calculator</button>
+        </Link>
+        <Link href={'/learn'}>
+          <button style={{ borderRadius: '10px' }}>Learn More about Water Scarcity</button>
+        </Link>
+        <Link href={'/take-action'}>
+          <button style={{ borderRadius: '10px' }}>Take Action</button>
+        </Link>
       </Box>
     </>
   );
