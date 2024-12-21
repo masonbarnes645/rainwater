@@ -32,7 +32,7 @@ export default function Calc() {
     useEffect(() => {
         const water = (Math.floor((roofArea * (selectedPlaceRain / 12)) * 7.48))
         setResult(water)
-        setBathtubs(Math.floor(water / 30))
+        setBathtubs(Math.floor(water / 33))
         setHotTubs(Math.floor(water / 300))
         setSodaCans(Math.floor(water / 0.004329))
     }, [roofArea, selectedPlaceRain]);
