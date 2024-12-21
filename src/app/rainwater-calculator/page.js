@@ -7,6 +7,9 @@ import { Box } from '@mui/material';
 export default function Calc() {
     const [selectedPlaceRain, setSelectedPlaceRain] = useState(24)
     const [roofArea, setRoofArea] = useState(0)
+    const [bathtubs, setBathtubs] = useState()
+    const [sodaCans, setSodaCans] = useState()
+    const [hotTubs, setHotTubs] = useState()
     const [result, setResult] = useState(null)
 
     const rainfall = [
@@ -27,27 +30,45 @@ export default function Calc() {
     ];
 
     useEffect(() => {
-        setResult(Math.floor((roofArea * (selectedPlaceRain / 12)) * 7.48))
+        const water = (Math.floor((roofArea * (selectedPlaceRain / 12)) * 7.48))
+        setResult(water)
+        setBathtubs(Math.floor(water / 30))
+        setHotTubs(Math.floor(water / 300))
+        setSodaCans(Math.floor(water / 0.004329))
     }, [roofArea, selectedPlaceRain]);
 
 
 
     return (
-        <Box sx={{marginX:'25%', marginTop:'10%'}}>
+        <Box sx={{ marginX: '25%', marginTop: '10%' }}>
             <Box>
-                <h1> Rainwater Collection Calculator</h1>
+                <h1 style={{fontSize:'60px'}}> Rainwater Collection Calculator</h1>
                 <p>{blurb}</p>
             </Box>
-            <Box sx={{marginTop:'50px'}}>
+            <Box sx={{ marginTop: '50px' }}>
                 <form>
-                    <label style={{fontSize:'30px'}}> Roof Area (in feet): </label>
+                    <label style={{ fontSize: '30px' }}> Roof Area (in feet): </label>
                     <input type="number" value={roofArea} onChange={(e) => setRoofArea(e.target.value)}></input>
-                    <label style={{fontSize:'30px'}}>City: </label>
+                    <label style={{ fontSize: '30px' }}>City: </label>
                     <select onChange={(e) => setSelectedPlaceRain(e.target.value)}>
                         {rainfall.map((place) => <option key={place.city} value={place.rain}>{place.city}</option>)}
                     </select>
                 </form>
-                <h1>{result} Gallons per Year</h1>
+                <h1>{result} Gallons per Year.</h1>
+                <h1> Equivalent to... </h1>
+                <Box>
+                    <ul style={{lineHeight:'60px'}}>
+                        <li>
+                            <h2>{bathtubs} Bathtubs Filled</h2>
+                        </li>
+                        <li>
+                            <h2>{hotTubs} Hot Tubs Filled</h2>
+                        </li>
+                        <li>
+                            <h2>{sodaCans} Cans of Soda Filled</h2>
+                        </li>
+                    </ul>
+                </Box>
             </Box>
         </Box>
     )

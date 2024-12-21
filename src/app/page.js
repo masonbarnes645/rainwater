@@ -11,10 +11,12 @@ import CustomButton from "./components/CustomButton";
 
 export default function Home() {
   return (
-    <Box sx={{marginTop:'60px'}}>
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        <img src="/drieduplandscape.jpg" height={'550px'} />
-        <h2>{blurb}</h2>
+    <Box>
+      <Box sx={{margin:'8%' }}>
+          <h1 style={{ textAlign: 'center', fontSize: '80px', fontStyle: 'italic' }}> Every Drop </h1>
+        <Box sx={{marginTop:'0px'}}>
+          <h1 style={{ fontWeight: '100' }}>{blurb}</h1>
+        </Box>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
         <Link href={'/learn'}>
